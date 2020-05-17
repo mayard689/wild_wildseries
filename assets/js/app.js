@@ -21,10 +21,10 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 
 if(jQuery){
-    alert("jQuery est chargé");
+    console.log("jQuery est chargé");
 }
 else{
-    alert("jQuery n'est pas chargé");
+    console.log("jQuery n'est pas chargé");
 }
 
 
