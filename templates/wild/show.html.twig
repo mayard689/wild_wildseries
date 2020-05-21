@@ -1,7 +1,20 @@
-{%  extends "base.html.twig" %}
+{# templates/wild/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{{ slug }}{% endblock %}
 
-{% block main %}
-    <h1> {{message}} </h1>
-    <p>Remarquez que la police choisie utilise comme minuscule des symboles majuscules legerement plus petits. Le H1 ci dessus utilise bien des majuscules en premières lettres
-        de mot et des minuscules dans les autres cas ;-).</p>
+{% block body %}
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Categorie : {{ program.category.name }}</p>
+        </div>
+    </div>
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
 {% endblock %}
