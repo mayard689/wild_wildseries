@@ -6,6 +6,8 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Program;
+use App\Entity\Season;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\Exception\NoSuchOptionException;
@@ -70,11 +72,13 @@ class WildController extends AbstractController
             throw $this->createNotFoundException(
                 'No program with '.$slug.' title, found in program\'s table.'
             );
+        } else {
+            //note that this line is here as requested by the quest review list but useless as twig xan acce the season directly from the program object
+            $seasons=$program->getSeasons();
         }
 
         return $this->render('wild/show.html.twig', [
             'program' => $program,
-            'slug'  => $slug,
         ]);
     }
 
@@ -101,4 +105,22 @@ class WildController extends AbstractController
 
     }
 
+    /**
+     * @param $seasonId
+     * @return Response
+     *
+     * @route("/season/{seasonId<[0-9]+>}", name="showSeason")
+     */
+    public function showBySeason(string $seasonId) : Response
+    {
+        $season = $this->getDoctrine()
+            ->getRepository(Season::class)
+            ->findOneBy(['id' => mb_strtolower($seasonId)]);
+
+        return $this->render(
+            'wild/season.html.twig',
+            ['season' => $season]
+        );
+
+    }
 }
