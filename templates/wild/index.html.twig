@@ -4,23 +4,38 @@
 
 {% block main %}
     <h1>Toutes les séries de la table program : </h1>
-    {% for program in programs %}
-        <div>
-            <h2>{{ loop.index }} /
-                <a href="{{
-                    path('wild_show', {
-                        'slug':program.title|
-                        lower|
-                        replace({' ': '-'})
-                    })
-                }}">
-                    {{ program.title }}
-                </a>- Catégorie : {{ program.category.name }}</h2>
-            <p>{{ program.summary }}</p>
+
+
+    {%  if programs is not null %}
+
+        <div class="container d-flex flex-wrap justify-content-between">
+        {% for program in programs %}
+            {#
+            <div class="row episode">
+                <h2 class="col-md">{{ loop.index }} /
+                    <a href="{{
+                        path('wild_show', {
+                            'slug':program.title|
+                            lower|
+                            replace({' ': '-'})
+                        })
+                    }}">
+                        {{ program.title }}
+                    </a>
+                </h2>
+                <h3 class="col-md"> Catégorie : {{ program.category.name }}</h3>
+                <p class="col-md-12">{{ program.summary }}</p>
+            </div>
+            #}
+            {% include 'wild/_programCard.html.twig' %}
+        {% endfor %}
         </div>
+
+
     {% else %}
         Aucune série trouvée.
-    {% endfor %}
+        {% endif %}
+
     <a href="{{ path('app_index') }}">
         Retour à l'accueil
     </a>
