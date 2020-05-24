@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ season.program.title }} saison {{  season.number  }}{% endblock %}
+
+{% block main %}
+
+    <h1 class="row"> Liste des épisodes de {{ season.program.title }} saison {{  season.number  }} : </h1>
+
+    <p class="row"> {{  season.description }}</p>
+
+    {#
+    {% for episode in season.episodes %}
+        <div class="row episode">
+            <h2>{{ episode.number }} / {{ episode.title }}</h2>
+            <p class="col-12 ">{{ episode.synopsis }}</p>
+        </div>
+    {% else %}
+        Aucun épisode trouvé.
+    {% endfor %}
+    #}
+
+    <div class="accordion" id="exempleAccordeon">
+
+        {% for index, episode in season.episodes %}
+            <div class="card">
+                <div class="card-header" id="header_{{ index }}">
+                    <button class="btn btn-link w-100 d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#collapse_{{ index }}" aria-expanded="true" aria-controls="collapse_{{ index }}">
+                        <h2>{{ episode.number }} / {{ episode.title }}</h2>
+                    </button>
+                </div>
+                <div id="collapse_{{ index }}" class="collapse" aria-labelledby="header_{{ index }}" data-parent="#exempleAccordeon">
+                    <div class="card-body">
+                        <p >{{ episode.synopsis }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}

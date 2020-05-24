@@ -1,7 +1,24 @@
-{%  extends "base.html.twig" %}
+{# templates/wild/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{{ program.title }}{% endblock %}
 
 {% block main %}
-    <h1> {{message}} </h1>
-    <p>Remarquez que la police choisie utilise comme minuscule des symboles majuscules legerement plus petits. Le H1 ci dessus utilise bien des majuscules en premières lettres
-        de mot et des minuscules dans les autres cas ;-).</p>
+
+    <div class="media">
+        <img class="align-self-center mr-3 poster" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            {%  if program.seasons is empty %} - Aucune saison n'est enregsitrée pour cette série-  {%  endif %}
+            {%  for season in program.seasons %}
+                <a href="{{ path('wild_showSeason', {'seasonId':season.id}) }}">saison {{ season.number }}</a>
+            {%  endfor %}
+            <p>{{ program.summary }}</p>
+            <p>Categorie : {{ program.category.name }}</p>
+        </div>
+    </div>
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
 {% endblock %}
