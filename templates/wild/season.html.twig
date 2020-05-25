@@ -8,17 +8,6 @@
 
     <p class="row"> {{  season.description }}</p>
 
-    {#
-    {% for episode in season.episodes %}
-        <div class="row episode">
-            <h2>{{ episode.number }} / {{ episode.title }}</h2>
-            <p class="col-12 ">{{ episode.synopsis }}</p>
-        </div>
-    {% else %}
-        Aucun épisode trouvé.
-    {% endfor %}
-    #}
-
     <div class="accordion" id="exempleAccordeon">
 
         {% for index, episode in season.episodes %}
