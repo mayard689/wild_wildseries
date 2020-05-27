@@ -49,6 +49,10 @@ class Season
         $this->episodes = new ArrayCollection();
     }
 
+    public function getSelectFormString(){
+        return $this->getNumber()." ".$this->getProgram()->getTitle();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
