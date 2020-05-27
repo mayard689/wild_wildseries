@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a category{% endblock %}
+
+{% block main %}
+    <h1>Ajoutez une category </h1>
+
+    <h2>Liste des catégories enregistrées </h2>
+    <ul>
+    {% for category in categories %}
+        <li>{{ category.name }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2> Ajouter une catégorie </h2>
+    {{ form(form) }}
+
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
