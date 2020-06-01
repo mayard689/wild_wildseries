@@ -10,7 +10,9 @@ https://drive.google.com/file/d/1c1rpuPZNzqp8IQNNDKjoIzDXetNcrNp7/view
 capture for quest 12 : CRUT
 https://drive.google.com/file/d/1TctD6Un_Jw22_Zep30JGwHC5Dr2R4dGq/view
 
-
+capture for quest 13 : validatioin
+https://drive.google.com/file/d/1jx8cXQJHCPRhKY1jsqqQ9aiPux7ryeEe/view
+The colored blinking screen is due to my manipoulation to remove the form-side validation code.
 
 
 Adrien
