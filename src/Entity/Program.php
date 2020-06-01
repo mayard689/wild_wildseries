@@ -27,21 +27,25 @@ class Program
     /**
      * @ORM\Column(type="string", length=255)
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez indiquer un titre pour ce programme.")
      * @Assert\Regex(
      *               pattern ="/( *)plus belle la vie(.*)/",
      *               match=false,
      *               normalizer="strtolower",
      *               message="Veuillez indiquer le nom d'une vraie série uniquement. 'Plus belle la vie' ou 'Premiers Baisers' ne sont pas des titres acceptables.",
      *              )
-     * normalizer='normalize'
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
      *
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez indiquer un synopsis pour ce programme.")
      *
      */
     private $summary;
