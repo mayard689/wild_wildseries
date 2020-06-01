@@ -6,8 +6,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProgramRepository")
+ * @UniqueEntity("title",
+ *               errorPath="title",
+ *               message="Le titre {{ value }} existe déjà. Veuillez en indiquer un autre.")
  */
 class Program
 {
@@ -20,11 +26,27 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Veuillez indiquer un titre pour ce programme.")
+     * @Assert\Regex(
+     *               pattern ="/( *)plus belle la vie(.*)/",
+     *               match=false,
+     *               normalizer="strtolower",
+     *               message="Veuillez indiquer le nom d'une vraie série uniquement. 'Plus belle la vie' ou 'Premiers Baisers' ne sont pas des titres acceptables.",
+     *              )
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères",
+     *      allowEmptyString = false
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     *
+     * @Assert\NotBlank(message="Veuillez indiquer un synopsis pour ce programme.")
+     *
      */
     private $summary;
 
@@ -43,6 +65,15 @@ class Program
      * @ORM\OneToMany(targetEntity="App\Entity\Season", mappedBy="program", orphanRemoval=true)
      */
     private $seasons;
+
+    /**
+     * @param string $
+     * @return string without leading and trailing spaces, in lower case
+     */
+    private function normalize(string $s)
+    {
+        return (strtolower(trim($s)));
+    }
 
     public function __construct()
     {
