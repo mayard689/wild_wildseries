@@ -17,4 +17,8 @@ The colored blinking screen is due to my manipoulation to remove the form-side v
 capture for quest 14 : ManyToMany relations
 https://drive.google.com/file/d/1rVGAI7l_0QgOAwAc7LR2fuu4XDDYXH5y/view
 
+capture for quest 15 : form for many to many & entity type
+https://drive.google.com/file/d/1JpYuSRtlzopxhH9J8eRQRB1moNMP_Gfv/view
+
+
 Adrien
