@@ -20,7 +20,10 @@ https://drive.google.com/file/d/1rVGAI7l_0QgOAwAc7LR2fuu4XDDYXH5y/view
 capture for quest 15 : form for many to many & entity type
 https://drive.google.com/file/d/1JpYuSRtlzopxhH9J8eRQRB1moNMP_Gfv/view
 
-capture for quest 16
+capture for quest 16 : fixtures
 https://drive.google.com/file/d/1zUdjXyJ2F_xMbweCEdrFiQuJbtTWHIht/view
+
+capture for quest 17 : services
+http://localhost:8000/actor/
 
 Adrien
