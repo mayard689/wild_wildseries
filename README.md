@@ -12,7 +12,7 @@ https://drive.google.com/file/d/1TctD6Un_Jw22_Zep30JGwHC5Dr2R4dGq/view
 
 capture for quest 13 : validatioin
 https://drive.google.com/file/d/1jx8cXQJHCPRhKY1jsqqQ9aiPux7ryeEe/view
-The colored blinking screen is due to my manipoulation to remove the form-side validation code.
+The colored blinking screen is due to my manipulation to remove the form-side validation code.
 
 capture for quest 14 : ManyToMany relations
 https://drive.google.com/file/d/1rVGAI7l_0QgOAwAc7LR2fuu4XDDYXH5y/view
@@ -25,5 +25,8 @@ https://drive.google.com/file/d/1zUdjXyJ2F_xMbweCEdrFiQuJbtTWHIht/view
 
 capture for quest 17 : services
 https://drive.google.com/file/d/18EdyHTb9BPylcJwpJVm_YT31vQqGG9Dx/view
+
+capture for quest 18
+https://drive.google.com/file/d/1NW767vEFrOEuU_LuDvd8cQvZUdmZLlGF/view
 
 Adrien
