@@ -9,6 +9,8 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -29,7 +31,7 @@ class ProgramController extends AbstractController
     /**
      * @Route("/new", name="program_new", methods={"GET","POST"})
      */
-    public function new(Request $request, Slugify $slugify): Response
+    public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
     {
         $program = new Program();
         $form = $this->createForm(ProgramType::class, $program);
@@ -42,6 +44,8 @@ class ProgramController extends AbstractController
             $entityManager->persist($program);
             $entityManager->flush();
 
+            $this->sendNewProgramNotification($program, $mailer);
+
             return $this->redirectToRoute('program_index');
         }
 
@@ -49,6 +53,21 @@ class ProgramController extends AbstractController
             'program' => $program,
             'form' => $form->createView(),
         ]);
+    }
+
+    private function sendNewProgramNotification(Program $program, MailerInterface $mailer)
+    {
+
+        $mailerFrom=$this->getParameter("mailer_from");
+        $email = (new Email())
+            ->from($mailerFrom)
+            ->to('maillard.adrien@gmail.com')
+            ->subject('Une nouvelle série vient d\'être publiée !')
+            ->html($this->renderView('program/email/notification.html.twig',[
+                'program' => $program,
+            ]));
+
+        $mailer->send($email);
     }
 
     /**

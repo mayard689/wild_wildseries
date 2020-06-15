@@ -1,0 +1,28 @@
+{% extends 'email.html.twig' %}
+
+{% block title %}Program{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block main %}
+
+    <h1 style="
+        font-family: 'Julius Sans One';
+        font-family:'Roboto';
+        color:#A10115;
+    ">Bonjour</h1>
+
+    <h2 style="
+        color:#D72C16;
+    ">Une nouvelle série vient d'être ajoutée.</h2>
+
+    <p style="
+        color:#000000;
+    ">Retrouvez la en cliquant sur le lien suivant :</p>
+
+    <a href=" {{ app.request.schemeAndHttpHost~path('program_show', {'slug': program.slug}) }}">{{ program.title }} </a>
+
+
+{% endblock %}
