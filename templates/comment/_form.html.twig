@@ -1,0 +1,39 @@
+<div class="container">
+    {{ form_start(form) }}
+        <div class="row form-group">
+                <div class="col-2">{{ form_label(form.title) }}</div>
+                <div class="col-4">{{ form_widget(form.title) }}</div>
+        </div>
+
+        <div class="row form-group">
+                <div class="col-2">{{ form_label(form.text) }}</div>
+                <div class="col-4">{{ form_widget(form.text) }}</div>
+        </div>
+
+        <div class="row form-group">
+                <div>
+                        {{ form_widget(form.rate,{'attr': {'class': 'd-none'}}) }}
+                </div>
+
+                <div class="col-2">{{ form_label(form.rate) }}</div>
+                <div class="star-group col-4">
+                        <i class="fa fa-star-o" id="rate-1"></i>
+                        <div class="star-group">
+                                <i class="fa fa-star-o" id="rate-2"></i>
+                                <div class="star-group">
+                                        <i class="fa fa-star-o" id="rate-3"></i>
+                                        <div class="star-group">
+                                                <i class="fa fa-star-o" id="rate-4"></i>
+                                                <div class="star-group">
+                                                        <i class="fa fa-star-o" id="rate-5"></i>
+
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>
