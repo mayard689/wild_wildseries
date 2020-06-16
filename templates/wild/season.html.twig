@@ -20,6 +20,9 @@
                 <div id="collapse_{{ index }}" class="collapse" aria-labelledby="header_{{ index }}" data-parent="#exempleAccordeon">
                     <div class="card-body">
                         <p >{{ episode.synopsis }}</p>
+                        <a href="{{ path('wild_showEpisode', {'id': episode.id}) }}">
+                            Voir la fiche de l'épisode
+                        </a>
                     </div>
                 </div>
             </div>

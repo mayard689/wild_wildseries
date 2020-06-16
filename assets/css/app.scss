@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import "font-awesome.min.css";
 
 @font-face {
   font-family: 'Source Sans';
@@ -44,7 +45,11 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  $primary:var(--primary);
 }
+
+
 
 body {
   background-color: var(--light);
@@ -75,9 +80,17 @@ main {
 .navbar{
   font-family: 'Julius';
 }
+
 .navbar-light .navbar-nav .active > .nav-link {
   color: var(--primary);
+}
 
+.navbar-brand{
+}
+
+
+.id{
+  font-size:10px;
 }
 
 .poster{
@@ -169,4 +182,25 @@ figure.effect-lily:hover p {
   transition-delay: 0.08s;
   transition-duration: 0.5s ease-in-out;
 
+}
+
+.comment-list{
+  margin-top:30px;
+  margin-bottom:30px;
+}
+
+.star-group:hover{
+  color: var(--primary);
+}
+
+.star-group{
+  display:flex;
+  align-items: baseline;
+  justify-content: center;
+  color:grey;
+  padding-left:10px;
+}
+
+input, textarea{
+  width:100%;
 }
