@@ -8,6 +8,7 @@ use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use App\Security\LoginFormAuthenticator;
 use DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +32,7 @@ class CommentController extends AbstractController
 
     /**
      * @Route("/new/episode/{episode}", name="comment_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      */
     public function new(Episode $episode, Request $request, ?UserInterface $user): Response
     {
@@ -72,9 +74,12 @@ class CommentController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      */
     public function edit(Request $request, Comment $comment): Response
     {
+        $this->denyAccessUnlessGranted('edit', $comment);
+
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
@@ -95,6 +100,8 @@ class CommentController extends AbstractController
      */
     public function delete(Request $request, Comment $comment): Response
     {
+        $this->denyAccessUnlessGranted('delete', $comment);
+
         if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($comment);

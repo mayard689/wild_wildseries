@@ -5,21 +5,23 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
-use Doctrine\Common\Collections\Collection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\OptionsResolver\Exception\NoSuchOptionException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class WildController
  * @package App\Controller
  *
  * @route("/wild", name="wild_")
- *
+ * @IsGranted("IS_AUTHENTICATED_ANONYMOUSLY")
  */
 class WildController extends AbstractController
 {
@@ -131,15 +133,31 @@ class WildController extends AbstractController
      *
      * @route("/episode/{id<[0-9]+>}", name="showEpisode")
      */
-    public function showEpisode(Episode $episode) : Response
+    public function showEpisode(Episode $episode, ?UserInterface $user) : Response
     {
         $season=$episode->getSeason();
-        $program=$season->getProgram();
 
         return $this->render(
             'wild/episode.html.twig',
-            ['episode' => $episode]
+            ['episode' => $episode,
+             'user'=>$user]
         );
 
+    }
+
+    /**
+     * @Route("/comment/{id}/delete", name="comment_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Comment $comment): Response
+    {
+        $this->denyAccessUnlessGranted('delete', $comment);
+
+        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($comment);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('wild_showEpisode',['id'=> $comment->getEpisode()->getId()]);
     }
 }

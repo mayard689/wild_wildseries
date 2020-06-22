@@ -34,6 +34,16 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/wild/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/.*/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/comment/new/episode/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/comment/, roles: ROLE_SUBSCRIBER }
+        - { path: ^/logout, roles: ROLE_USER }
+        - { path: ^/, roles: ROLE_ADMIN }
+
+    role_hierarchy:
+        ROLE_SUBSCRIBER: ROLE_USER
+        ROLE_ADMIN:  ROLE_SUBSCRIBER
+

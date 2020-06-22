@@ -18,7 +18,7 @@
     <h2>Commentaires sur cet épisode </h2>
     <div class="comment-list card-deck">
 
-        {% for comment in episode.comments|sort((a, b) => b.date <=> a.date) %}
+        {% for comment in episode.comments|sort((a, b) => a.date <=> b.date) %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{comment.title }}</h5>
@@ -98,8 +98,13 @@
                         {%  endif %}
 
                     </div>
-
+                    {%  if user==comment.author or is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_SUBSCRIBER') %}
+                            {{ include('wild/_delete_comment_form.html.twig') }}
+                        {%endif%}
+                    {%endif%}
                 </div>
+
             </div>
         {%  endfor %}
     </div>
