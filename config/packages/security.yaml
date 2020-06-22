@@ -25,6 +25,7 @@ security:
                 # where to redirect after logout
                 # target: app_any_route
 
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -38,7 +39,9 @@ security:
         - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/wild/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/.*/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/comment/new/episode/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/my-profile$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/comment/, roles: ROLE_SUBSCRIBER }
         - { path: ^/logout, roles: ROLE_USER }
         - { path: ^/, roles: ROLE_ADMIN }
