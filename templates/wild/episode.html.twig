@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ episode.season.program.title }} saison {{  episode.season.number  }}{% endblock %}
+{% block title %} {{ episode.season.program.title }} {{ 'season'|trans }} {{  episode.season.number  }}{% endblock %}
 
 {% block main %}
 
-    <h1 class="row">  {{ episode.season.program.title }} / saison {{  episode.season.number  }} : </h1>
+    <h1 class="row">  {{ episode.season.program.title }} / {{ 'season'|trans }} {{  episode.season.number  }} : </h1>
 
         <div class="row episode">
-            <h2>Episode {{ episode.number }} : {{ episode.title }}</h2>
+            <h2>{{ 'episode'|trans }} {{ episode.number }} : {{ episode.title }}</h2>
             <p class="col-12 ">{{ episode.synopsis }}</p>
         </div>
 
     {% if app.user %}
-        <a href="{{ path('comment_new',{'episode':episode.id}) }}">Laisser un commentaire</a>
+        <a href="{{ path('comment_new',{'episode':episode.id}) }}">{{ 'comment.add'|trans }}</a>
     {% endif %}
 
-    <h2>Commentaires sur cet épisode </h2>
+    <h2>{{ 'episode.comment'|trans }} </h2>
     <div class="comment-list card-deck">
 
         {% for comment in episode.comments|sort((a, b) => a.date <=> b.date) %}
@@ -111,7 +111,7 @@
 
     <div class="row link">
         <p class="col-12 ">
-            <a href="{{ path('wild_showSeason', {'seasonId':episode.season.id}) }}">Voir la liste des episodes de la saison {{ episode.season.number }}</a>
+            <a href="{{ path('wild_showSeason', {'seasonId':episode.season.id}) }}">{{ 'episode.list'|trans }} {{ episode.season.number }}</a>
         </p>
         <p class="col-12 ">
             <a href="{{
@@ -121,13 +121,13 @@
                 replace({' ': '-'})
             })
             }}">
-                Voir toutes les informations sur {{ episode.season.program.title }}
+                {{ 'see.episode.data'|trans }} {{ episode.season.program.title }}
             </a>
         </p>
     </div>
 
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
+        {{ 'back.home'|trans }}
     </a>
 
 {% endblock %}

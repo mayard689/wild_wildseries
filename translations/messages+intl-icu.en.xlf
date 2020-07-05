@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="fM0g8id" resname="for_username">
+        <source>for_username</source>
+        <target>for %username%</target>
+      </trans-unit>
+      <trans-unit id="Q7UTU9q" resname="account.logout">
+        <source>account.logout</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit id="E_t5j6Q" resname="account.login">
+        <source>account.login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="VFQeo.k" resname="language.list">
+        <source>language.list</source>
+        <target>Language</target>
+      </trans-unit>
+      <trans-unit id="UMnErrQ" resname="actor">
+        <source>actor</source>
+        <target>Actors</target>
+      </trans-unit>
+      <trans-unit id="imujLJv" resname="movie">
+        <source>movie</source>
+        <target>Movies by categories</target>
+      </trans-unit>
+      <trans-unit id="ExDKLIk" resname="program">
+        <source>program</source>
+        <target>All programs</target>
+      </trans-unit>
+      <trans-unit id="H.OjwYM" resname="favorite">
+        <source>favorite</source>
+        <target>Favorite</target>
+      </trans-unit>
+      <trans-unit id="mvIRMps" resname="account">
+        <source>account</source>
+        <target>My account</target>
+      </trans-unit>
+      <trans-unit id="i0hmopY" resname="all.programs">
+        <source>all.programs</source>
+        <target>All programs</target>
+      </trans-unit>
+      <trans-unit id="XIqVmIU" resname="no.serie.found">
+        <source>no.serie.found</source>
+        <target>No program found.</target>
+      </trans-unit>
+      <trans-unit id="6GKWFos" resname="back.home">
+        <source>back.home</source>
+        <target>Back Home</target>
+      </trans-unit>
+      <trans-unit id="Nq6ZIhH" resname="no.season.found">
+        <source>no.season.found</source>
+        <target>No season found.</target>
+      </trans-unit>
+      <trans-unit id="j44k9lx" resname="season">
+        <source>season</source>
+        <target>Season </target>
+      </trans-unit>
+      <trans-unit id="7bLNO3T" resname="category">
+        <source>category</source>
+        <target>Category</target>
+      </trans-unit>
+      <trans-unit id="mjN9ZoQ" resname="episode.list">
+        <source>episode.list</source>
+        <target>Episode list.</target>
+      </trans-unit>
+      <trans-unit id="KNfo3_x" resname="episode.data">
+        <source>episode.data</source>
+        <target>have a look to the episode sheet.</target>
+      </trans-unit>
+      <trans-unit id="fkFOasQ" resname="episode">
+        <source>episode</source>
+        <target>Episode</target>
+      </trans-unit>
+      <trans-unit id="hkfaMAF" resname="comment.add">
+        <source>comment.add</source>
+        <target>Add a comment.</target>
+      </trans-unit>
+      <trans-unit id="6RxTqRZ" resname="episode.comment">
+        <source>episode.comment</source>
+        <target>Comments</target>
+      </trans-unit>
+      <trans-unit id="InQyo1G" resname="see.episode.data">
+        <source>see.episode.data</source>
+        <target>Everything about this episode.</target>
+      </trans-unit>
+      <trans-unit id="kuafH.x" resname="program.category">
+        <source>program.category</source>
+        <target>Program by category</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

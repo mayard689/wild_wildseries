@@ -8,17 +8,17 @@
         <img class="align-self-center mr-3 poster" src="{{program.poster}}" alt="{{ program.title }} poster">
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
-            {%  if program.seasons is empty %} - Aucune saison n'est enregsitrée pour cette série-  {%  endif %}
+            {%  if program.seasons is empty %} - {{ 'no.season.found'|trans }} -  {%  endif %}
             {%  for season in program.seasons %}
-                <a href="{{ path('wild_showSeason', {'seasonId':season.id}) }}">saison {{ season.number }}</a>
+                <a href="{{ path('wild_showSeason', {'seasonId':season.id}) }}">{{ 'season'|trans }} {{ season.number }}</a>
             {%  endfor %}
             <p>{{ program.summary }}</p>
-            <p>Categorie : {{ program.category.name }}</p>
+            <p>{{ 'category'|trans }} : {{ program.category.name }}</p>
         </div>
     </div>
 
     <a href="{{ path('wild_index') }}">
-        Retour à l'accueil
+        {{ 'back.home'|trans }}
     </a>
 
 {% endblock %}

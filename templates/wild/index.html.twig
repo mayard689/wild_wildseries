@@ -3,7 +3,7 @@
 {% block title %}All programs{% endblock %}
 
 {% block main %}
-    <h1>Toutes les séries de la table program : </h1>
+    <h1>{{ 'all.programs'|trans }} : </h1>
 
 
     {%  if programs is not null %}
@@ -16,10 +16,10 @@
 
 
     {% else %}
-        Aucune série trouvée.
+        {{ 'no.serie.found'|trans }}
         {% endif %}
 
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
+        {{ 'back.home'|trans }}
     </a>
 {% endblock %}
