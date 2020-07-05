@@ -5,35 +5,44 @@
 {% block main %}
     <h1>Program index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>Poster</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container-fluid">
+
+            <div class="row border-bottom font-italic">
+                <div class="col-1">Id</div>
+                <div class="col-2">Title</div>
+                <div class="col-2">Summary</div>
+                <div class="col-2">Actors</div>
+                <div class="col-3">Poster</div>
+                <div class="col-2">Actions</div>
+            </div>
+
+
         {% for program in programs %}
-            <tr>
-                <td>{{ program.id }}</td>
-                <td>{{ program.title }}</td>
-                <td>{{ program.summary }}</td>
-                <td>{{ program.poster }}</td>
-                <td>
+            <div class="row">
+                <div class="col-1">{{ program.id }}</div>
+                <div class="col-2"><h3>{{ program.title }}</h3></div>
+                <div class="col-2">{{ program.summary }}</div>
+                <div class="col-2">
+                    {% for actor in program.actors %}
+                        {% if loop.index > 1 %} , {%  endif %}
+                        {{  actor.name }}
+                    {% else %}
+                        <p class="text-muted">Série à petit budget, sans aucun acteur.</p>
+                    {% endfor %}
+                </div>
+                <div class="col-3 overflow-auto">{{ program.poster }}</div>
+                <div class="col-2">
                     <a href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
                     <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
-                </td>
-            </tr>
+                </div>
+            </div>
         {% else %}
-            <tr>
+            <row>
                 <td colspan="5">no records found</td>
-            </tr>
+            </row>
         {% endfor %}
-        </tbody>
-    </table>
+
+    </div>
 
     <a href="{{ path('program_new') }}">Create new</a>
 {% endblock %}
