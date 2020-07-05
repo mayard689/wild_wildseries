@@ -38,4 +38,7 @@ https://drive.google.com/file/d/1XHw8vRgkAyGW8B51iNjJxSUVFeOPGdIu/view
 capture for quest 21 : user regsitration
 https://drive.google.com/file/d/1PUCGGfEwqLGJiygcJ-6LKiPsgdKt6EC0/view
 
+capture for quest 22 : minimizing request number
+https://drive.google.com/file/d/1QQFtojcP83feIT87tSzA4YGih-cHfcUS/view
+
 Adrien
