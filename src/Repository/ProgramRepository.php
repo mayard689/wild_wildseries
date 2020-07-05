@@ -19,32 +19,25 @@ class ProgramRepository extends ServiceEntityRepository
         parent::__construct($registry, Program::class);
     }
 
-    // /**
-    //  * @return Program[] Returns an array of Program objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findAllWithCategories()
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.category', 'c' )
+            ->addSelect('c')
+            ->getQuery();
 
-    /*
-    public function findOneBySomeField($value): ?Program
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $qb->execute();
     }
-    */
+
+    public function findAllWithCategoriesAndActors()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->leftJoin('p.category', 'c' )
+            ->addSelect('c')
+            ->leftJoin('p.actors', 'a' )
+            ->addSelect('a')
+            ->getQuery();
+
+        return $qb->execute();
+    }
 }
