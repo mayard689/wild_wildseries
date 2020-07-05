@@ -44,4 +44,7 @@ https://drive.google.com/file/d/1QQFtojcP83feIT87tSzA4YGih-cHfcUS/view
 capture for quest 23 : flash messages
 https://drive.google.com/file/d/1Zmt0eZNaByJRNPj-N67YO3dhN8qdRf9R/view
 
+capture for quest 25 : I18n
+https://drive.google.com/file/d/1p6ugBi0C-0LLAxMEj_Aux2sKIeJOrHQx/view
+
 Adrien

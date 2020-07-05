@@ -35,16 +35,16 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/wild/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/.*/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/comment/new/episode/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/my-profile$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/comment/, roles: ROLE_SUBSCRIBER }
-        - { path: ^/logout, roles: ROLE_USER }
-        - { path: ^/, roles: ROLE_ADMIN }
+        - { path: ^/[a-z][a-z]/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/wild/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/.*/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/register$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/comment/new/episode/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/my-profile$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/comment/, roles: ROLE_SUBSCRIBER }
+        - { path: ^/[a-z][a-z]/logout, roles: ROLE_USER }
+        - { path: ^/[a-z][a-z]/, roles: ROLE_ADMIN }
 
     role_hierarchy:
         ROLE_SUBSCRIBER: ROLE_USER

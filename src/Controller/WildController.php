@@ -89,7 +89,7 @@ class WildController extends AbstractController
      * @param $title
      * @return Response
      *
-     * @route("/category/{categoryName<[a-z0-9-]+>}", name="showCategory")
+     * @route("/category/{categoryName<[A-Za-z0-9-]+>}", name="showCategory")
      */
     public function showByCategory(string $categoryName) : Response
     {

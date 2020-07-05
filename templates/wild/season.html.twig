@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ season.program.title }} saison {{  season.number  }}{% endblock %}
+{% block title %} {{ season.program.title }} {{ 'season'|trans }} {{  season.number  }}{% endblock %}
 
 {% block main %}
 
-    <h1 class="row"> Liste des épisodes de {{ season.program.title }} saison {{  season.number  }} : </h1>
+    <h1 class="row">
+        {{ 'episode.list'|trans({'%title%': season.program.title}) }}
+        {{ 'season'|trans }} {{  season.number  }} :
+    </h1>
 
     <p class="row"> {{  season.description }}</p>
 
@@ -21,7 +24,7 @@
                     <div class="card-body">
                         <p >{{ episode.synopsis }}</p>
                         <a href="{{ path('wild_showEpisode', {'id': episode.id}) }}">
-                            Voir la fiche de l'épisode
+                            {{ 'episode.data'|trans }}
                         </a>
                     </div>
                 </div>
@@ -31,7 +34,7 @@
     </div>
 
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
+        {{ 'back.home'|trans }}
     </a>
 
 {% endblock %}
