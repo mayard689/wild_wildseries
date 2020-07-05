@@ -23,7 +23,7 @@
                     </svg> {{ 'actor'|trans }}
                 </a>
             </li>
-
+{#
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg class="bi bi-tv m-2" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,8 @@
                     <a class="dropdown-item" href="{{path('wild_showCategory', {'categoryName':'Fantastique'})}}">Fantastique</a>
                     <a class="dropdown-item" href="{{path('wild_showCategory', {'categoryName':'Horreur'})}}">Horreur</a>
                 </div>
-            </li>
+            </li>#}
+            {{ render(path('wild_list_category')) }}
 
             <li class="nav-item">
                 <a class="nav-link d-flex align-items-center" href="{{path('wild_index')}}">
