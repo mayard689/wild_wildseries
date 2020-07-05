@@ -41,4 +41,7 @@ https://drive.google.com/file/d/1PUCGGfEwqLGJiygcJ-6LKiPsgdKt6EC0/view
 capture for quest 22 : minimizing request number
 https://drive.google.com/file/d/1QQFtojcP83feIT87tSzA4YGih-cHfcUS/view
 
+capture for quest 23 : flash messages
+https://drive.google.com/file/d/1Zmt0eZNaByJRNPj-N67YO3dhN8qdRf9R/view
+
 Adrien
