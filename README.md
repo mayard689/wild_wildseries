@@ -47,4 +47,7 @@ https://drive.google.com/file/d/1Zmt0eZNaByJRNPj-N67YO3dhN8qdRf9R/view
 capture for quest 25 : I18n
 https://drive.google.com/file/d/1p6ugBi0C-0LLAxMEj_Aux2sKIeJOrHQx/view
 
+capture for quest 26 : embedded controller
+https://drive.google.com/file/d/1qR1snXGjlEovneTrLt-vycyfFPVoYOjP/view
+
 Adrien

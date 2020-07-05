@@ -9,6 +9,7 @@ use App\Entity\Comment;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Repository\CategoryRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -159,5 +160,14 @@ class WildController extends AbstractController
         }
 
         return $this->redirectToRoute('wild_showEpisode',['id'=> $comment->getEpisode()->getId()]);
+    }
+
+    /**
+     * @Route("/list/category", name="list_category")
+     */
+    public function getCategoryList(CategoryRepository $categoryRepository)
+    {
+        $categories=$categoryRepository->findAll();
+        return $this->render('_navbarCategoryItem.html.twig',['categories'=> $categories]);
     }
 }
